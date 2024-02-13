@@ -1,0 +1,2361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2675</ID>
+      <Description>"////CharacterPhysicsValues////"</Description>
+      <Options moHideChildren="1"/>
+      <Color>00FF00</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2676</ID>
+          <Description>"-Position-"</Description>
+          <Options moHideChildren="1"/>
+          <Color>8000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>77</ID>
+              <Description>"&gt;X - Horizontal&lt;"</Description>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"Sky.exe"+023B2698</Address>
+              <Offsets>
+                <Offset>C60</Offset>
+                <Offset>58</Offset>
+                <Offset>10</Offset>
+                <Offset>2B0</Offset>
+                <Offset>2C8</Offset>
+                <Offset>48</Offset>
+                <Offset>5B8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>35</ID>
+              <Description>"&gt;Y - Vertical&lt;"</Description>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"Sky.exe"+0202F720</Address>
+              <Offsets>
+                <Offset>C64</Offset>
+                <Offset>40</Offset>
+                <Offset>120</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>101</ID>
+              <Description>"&gt;Z - Depth&lt;"</Description>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"Sky.exe"+023B2698</Address>
+              <Offsets>
+                <Offset>C68</Offset>
+                <Offset>58</Offset>
+                <Offset>8</Offset>
+                <Offset>D0</Offset>
+                <Offset>310</Offset>
+                <Offset>48</Offset>
+                <Offset>5B8</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2674</ID>
+          <Description>"-Velocity-"</Description>
+          <Options moHideChildren="1"/>
+          <Color>8000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2681</ID>
+              <Description>"&gt;X - Horizontal&lt;"</Description>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"Sky.exe"+0202F720</Address>
+              <Offsets>
+                <Offset>EA0</Offset>
+                <Offset>10</Offset>
+                <Offset>120</Offset>
+                <Offset>10</Offset>
+                <Offset>18</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2670</ID>
+              <Description>"&gt;Y - Vertical&lt;"</Description>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"Sky.exe"+0202F720</Address>
+              <Offsets>
+                <Offset>C14</Offset>
+                <Offset>40</Offset>
+                <Offset>70</Offset>
+                <Offset>10</Offset>
+                <Offset>D0</Offset>
+                <Offset>8</Offset>
+                <Offset>58</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2700</ID>
+              <Description>"&gt;Z - Depth&lt;"</Description>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"Sky.exe"+023B2698</Address>
+              <Offsets>
+                <Offset>EA8</Offset>
+                <Offset>10</Offset>
+                <Offset>18</Offset>
+                <Offset>30</Offset>
+                <Offset>10</Offset>
+                <Offset>5B8</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2701</ID>
+          <Description>"-Lookup-"</Description>
+          <Options moHideChildren="1"/>
+          <Color>00FFFF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Sky.exe
+  Version: 
+  Date   : 2024-02-10
+  Author : jeret
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(coords,Sky.exe,C4 C1 78 28 75 00 E9) // should be unique
+alloc(newmem,$1000,coords)
+alloc(p_coord,8)
+
+label(code)
+label(return)
+
+p_coord:
+dq 0
+
+newmem:
+mov [p_coord],r13
+code:
+  vmovaps xmm6,[r13+00]
+  jmp return
+
+coords:
+  jmp newmem
+  nop
+return:
+registersymbol(coords p_coord)
+
+[DISABLE]
+
+coords:
+  db C4 C1 78 28 75 00
+
+unregistersymbol(coords p_coord)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Sky.exe+771906
+
+Sky.exe+7718D6: C7 44 24 28 9A 99 19 3E     - mov [rsp+28],3E19999A
+Sky.exe+7718DE: C7 44 24 20 20 00 00 00     - mov [rsp+20],00000020
+Sky.exe+7718E6: 4C 89 E1                    - mov rcx,r12
+Sky.exe+7718E9: 48 89 EA                    - mov rdx,rbp
+Sky.exe+7718EC: C5 F8 28 D6                 - vmovaps xmm2,xmm6
+Sky.exe+7718F0: E8 EB 23 03 00              - call Sky.exe+7A3CE0
+Sky.exe+7718F5: 41 89 C4                    - mov r12d,eax
+Sky.exe+7718F8: 84 C0                       - test al,al
+Sky.exe+7718FA: 0F 84 A7 01 00 00           - je Sky.exe+771AA7
+Sky.exe+771900: C5 F8 28 44 24 70           - vmovaps xmm0,[rsp+70]
+// ---------- INJECTING HERE ----------
+Sky.exe+771906: C4 C1 78 28 75 00           - vmovaps xmm6,[r13+00]
+// ---------- DONE INJECTING  ----------
+Sky.exe+77190C: E9 B8 01 00 00              - jmp Sky.exe+771AC9
+Sky.exe+771911: C5 A2 59 05 07 DC 24 01     - vmulss xmm0,xmm11,[Sky.exe+19BF520]
+Sky.exe+771919: E8 42 26 14 01              - call Sky.exe+18B3F60
+Sky.exe+77191E: C5 AA 5C C0                 - vsubss xmm0,xmm10,xmm0
+Sky.exe+771922: C4 C1 7A 5F C0              - vmaxss xmm0,xmm0,xmm8
+Sky.exe+771927: C4 C1 7A 5D C2              - vminss xmm0,xmm0,xmm10
+Sky.exe+77192C: C5 CA 5C F7                 - vsubss xmm6,xmm6,xmm7
+Sky.exe+771930: C4 E2 79 A9 F7              - vfmadd213ss xmm6,xmm0,xmm7
+Sky.exe+771935: C5 7A 10 7C 24 60           - vmovss xmm15,[rsp+60]
+Sky.exe+77193B: C5 78 28 84 24 80 00 00 00  - vmovaps xmm8,[rsp+00000080]
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2702</ID>
+              <Description>"&gt;Xcoord&lt;"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>[p_coord]+00</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2703</ID>
+              <Description>"&gt;Ycoord&lt;"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>[p_coord]+04</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2704</ID>
+              <Description>"&gt;Zcoord&lt;"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>[p_coord]+08</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2729</ID>
+      <Description>"////TelePort////"</Description>
+      <Options moHideChildren="1"/>
+      <Color>00FF00</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2735</ID>
+          <Description>"-Home-"</Description>
+          <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+          <Color>0080FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2739</ID>
+              <Description>"*Main*"</Description>
+              <Color>FFFF00</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",0.632291913)
+    writeFloat("[p_coord]+04",0.6561209559)
+    writeFloat("[p_coord]+08",-0.4526782036)
+  end
+
+   --1
+  if isKeyPressed(VK_1) then
+  speak()
+    writeFloat("[p_coord]+00",11.86284065)
+    writeFloat("[p_coord]+04",0.604205668)
+    writeFloat("[p_coord]+08",-21.87018013)
+  end
+
+   --2
+  if isKeyPressed(VK_2) then
+  speak()
+    writeFloat("[p_coord]+00",16.03309631)
+    writeFloat("[p_coord]+04",0.5775902271)
+    writeFloat("[p_coord]+08",-20.1332798)
+  end
+
+   --3
+  if isKeyPressed(VK_3) then
+  speak()
+    writeFloat("[p_coord]+00",20.06490135)
+    writeFloat("[p_coord]+04",0.5952026248)
+    writeFloat("[p_coord]+08",-17.68820763)
+  end
+
+   --4
+  if isKeyPressed(VK_4) then
+  speak()
+    writeFloat("[p_coord]+00",23.05165863)
+    writeFloat("[p_coord]+04",0.5956521034)
+    writeFloat("[p_coord]+08",-14.67111492)
+  end
+
+   --5
+  if isKeyPressed(VK_5) then
+  speak()
+    writeFloat("[p_coord]+00",24.37406158)
+    writeFloat("[p_coord]+04",0.5421833992)
+    writeFloat("[p_coord]+08",-10.16742897)
+  end
+
+   --Aviary
+  if isKeyPressed(VK_9) then
+  speak()
+    writeFloat("[p_coord]+00",-0.6953486204)
+    writeFloat("[p_coord]+04",-0.5909585953)
+    writeFloat("[p_coord]+08",21.75221443)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2706</ID>
+          <Description>"-DayLightPrairie-"</Description>
+          <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+          <Color>00FFFF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2707</ID>
+              <Description>"&gt;Zone1&lt;"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",76.98934174)
+    writeFloat("[p_coord]+04",149.6681061)
+    writeFloat("[p_coord]+08",1.424868584)
+  end
+
+   --1
+  if isKeyPressed(VK_1) then
+  speak()
+    writeFloat("[p_coord]+00",58.67159653)
+    writeFloat("[p_coord]+04",150.5651245)
+    writeFloat("[p_coord]+08",7.221393585)
+  end
+
+   --2
+  if isKeyPressed(VK_2) then
+  speak()
+    writeFloat("[p_coord]+00",103.0327225)
+    writeFloat("[p_coord]+04",154.6321106)
+    writeFloat("[p_coord]+08",16.12822723)
+  end
+
+   --3
+  if isKeyPressed(VK_3) then
+  speak()
+    writeFloat("[p_coord]+00",81.73621368)
+    writeFloat("[p_coord]+04",157.5736847)
+    writeFloat("[p_coord]+08",50.27630615)
+  end
+
+   --4
+  if isKeyPressed(VK_4) then
+  speak()
+    writeFloat("[p_coord]+00",118.881813)
+    writeFloat("[p_coord]+04",19.49868202)
+    writeFloat("[p_coord]+08",324.3654175)
+  end
+
+   --5
+  if isKeyPressed(VK_5) then
+  speak()
+    writeFloat("[p_coord]+00",103.932457)
+    writeFloat("[p_coord]+04",0.6453130841)
+    writeFloat("[p_coord]+08",360.6825867)
+  end
+
+   --6
+  if isKeyPressed(VK_6) then
+  speak()
+    writeFloat("[p_coord]+00",114.2354813)
+    writeFloat("[p_coord]+04",0.3264446557)
+    writeFloat("[p_coord]+08",420.5493164)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2708</ID>
+              <Description>"&gt;Zone2&lt;"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",27.0788002)
+    writeFloat("[p_coord]+04",184.4214783)
+    writeFloat("[p_coord]+08",277.8618774)
+  end
+
+   --1
+  if isKeyPressed(VK_1) then
+  speak()
+    writeFloat("[p_coord]+00",92.55157471)
+    writeFloat("[p_coord]+04",198.2732391)
+    writeFloat("[p_coord]+08",270.259613)
+  end
+
+   --2
+  if isKeyPressed(VK_2) then
+  speak()
+    writeFloat("[p_coord]+00",66.9772644)
+    writeFloat("[p_coord]+04",193.4929352)
+    writeFloat("[p_coord]+08",358.8978882)
+  end
+
+   --3
+  if isKeyPressed(VK_3) then
+  speak()
+    writeFloat("[p_coord]+00",-14.46369553)
+    writeFloat("[p_coord]+04",191.9279633)
+    writeFloat("[p_coord]+08",317.8052368)
+  end
+
+   --4
+  if isKeyPressed(VK_4) then
+  speak()
+    writeFloat("[p_coord]+00",116.1808243)
+    writeFloat("[p_coord]+04",252.9583588)
+    writeFloat("[p_coord]+08",453.6245422)
+  end
+
+   --5
+  if isKeyPressed(VK_5) then
+  speak()
+    writeFloat("[p_coord]+00",-61.71473312)
+    writeFloat("[p_coord]+04",202.0317383)
+    writeFloat("[p_coord]+08",210.088028)
+  end
+
+   --6
+  if isKeyPressed(VK_6) then
+  speak()
+    writeFloat("[p_coord]+00",114.2354813)
+    writeFloat("[p_coord]+04",0.3264446557)
+    writeFloat("[p_coord]+08",420.5493164)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2713</ID>
+              <Description>"&gt;Zone3&lt;"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",-103.6734848)
+    writeFloat("[p_coord]+04",171.2393494)
+    writeFloat("[p_coord]+08",56.74611282)
+  end
+
+   --1
+  if isKeyPressed(VK_1) then
+  speak()
+    writeFloat("[p_coord]+00",-156.6405029)
+    writeFloat("[p_coord]+04",180.5737305)
+    writeFloat("[p_coord]+08",110.3442078)
+  end
+
+   --2
+  if isKeyPressed(VK_2) then
+  speak()
+    writeFloat("[p_coord]+00",-194.5084534)
+    writeFloat("[p_coord]+04",177.6791687)
+    writeFloat("[p_coord]+08",83.15434265)
+  end
+
+   --3
+  if isKeyPressed(VK_3) then
+  speak()
+    writeFloat("[p_coord]+00",-181.7836456)
+    writeFloat("[p_coord]+04",188.9738464)
+    writeFloat("[p_coord]+08",124.6741333)
+  end
+
+   --4
+  if isKeyPressed(VK_4) then
+  speak()
+    writeFloat("[p_coord]+00",-158.3558502)
+    writeFloat("[p_coord]+04",196.1403046)
+    writeFloat("[p_coord]+08",118.2918625)
+  end
+
+   --5
+  if isKeyPressed(VK_5) then
+  speak()
+    writeFloat("[p_coord]+00",-197.2297058)
+    writeFloat("[p_coord]+04",205.2802887)
+    writeFloat("[p_coord]+08",87.04412079)
+  end
+
+   --6
+  if isKeyPressed(VK_6) then
+  speak()
+    writeFloat("[p_coord]+00",-214.6385345)
+    writeFloat("[p_coord]+04",180.8532715)
+    writeFloat("[p_coord]+08",153.054245)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2705</ID>
+              <Description>"&gt;qeyser&lt;"</Description>
+              <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",225.1729889)
+    writeFloat("[p_coord]+04",107.7911072)
+    writeFloat("[p_coord]+08",196.4209747)
+  end
+
+   --1
+  if isKeyPressed(VK_1) then
+  speak()
+    writeFloat("[p_coord]+00",246.6693573)
+    writeFloat("[p_coord]+04",95.44561768)
+    writeFloat("[p_coord]+08",219.7987213)
+  end
+
+   --2
+  if isKeyPressed(VK_2) then
+  speak()
+    writeFloat("[p_coord]+00",143.3539124)
+    writeFloat("[p_coord]+04",12.84314823)
+    writeFloat("[p_coord]+08",281.1078186)
+  end
+
+   --3
+  if isKeyPressed(VK_3) then
+  speak()
+    writeFloat("[p_coord]+00",91.89277649)
+    writeFloat("[p_coord]+04",2.287508726)
+    writeFloat("[p_coord]+08",292.7108459)
+  end
+
+   --4
+  if isKeyPressed(VK_4) then
+  speak()
+    writeFloat("[p_coord]+00",118.881813)
+    writeFloat("[p_coord]+04",19.49868202)
+    writeFloat("[p_coord]+08",324.3654175)
+  end
+
+   --5
+  if isKeyPressed(VK_5) then
+  speak()
+    writeFloat("[p_coord]+00",103.932457)
+    writeFloat("[p_coord]+04",0.6453130841)
+    writeFloat("[p_coord]+08",360.6825867)
+  end
+
+   --6
+  if isKeyPressed(VK_6) then
+  speak()
+    writeFloat("[p_coord]+00",114.2354813)
+    writeFloat("[p_coord]+04",0.3264446557)
+    writeFloat("[p_coord]+08",420.5493164)
+  end
+
+   --7
+  if isKeyPressed(VK_7) then
+  speak()
+    writeFloat("[p_coord]+00",25.3444519)
+    writeFloat("[p_coord]+04",54.16479492)
+    writeFloat("[p_coord]+08",337.0970459)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>2714</ID>
+                  <Description>"geyser"</Description>
+                  <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+                  <Color>8000FF</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>2715</ID>
+                      <Description>"&gt;DirectWarp&lt;"</Description>
+                      <Color>FFFF00</Color>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_G) then
+  speak()
+    writeFloat("[p_coord]+00",144.4620819)
+    writeFloat("[p_coord]+04",2.341636658)
+    writeFloat("[p_coord]+08",422.2485657)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2716</ID>
+          <Description>"-HiddenForest-"</Description>
+          <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+          <Color>00FFFF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2721</ID>
+              <Description>"&gt;Zone1&lt;"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",14.96924782)
+    writeFloat("[p_coord]+04",148.6953278)
+    writeFloat("[p_coord]+08",-467.257843)
+  end
+
+   --1
+  if isKeyPressed(VK_1) then
+  speak()
+    writeFloat("[p_coord]+00",27.09984589)
+    writeFloat("[p_coord]+04",97.77735901)
+    writeFloat("[p_coord]+08",-279.9536438)
+  end
+
+   --2
+  if isKeyPressed(VK_2) then
+  speak()
+    writeFloat("[p_coord]+00",17.89395523)
+    writeFloat("[p_coord]+04",94.78263092)
+    writeFloat("[p_coord]+08",-218.6417084)
+  end
+
+   --3
+  if isKeyPressed(VK_3) then
+  speak()
+    writeFloat("[p_coord]+00",16.29180336)
+    writeFloat("[p_coord]+04",96.35305786)
+    writeFloat("[p_coord]+08",-177.3115387)
+  end
+
+   --4
+  if isKeyPressed(VK_4) then
+  speak()
+    writeFloat("[p_coord]+00",9.564980507)
+    writeFloat("[p_coord]+04",97.59790039)
+    writeFloat("[p_coord]+08",-155.448349)
+  end
+
+   --5
+  if isKeyPressed(VK_5) then
+  speak()
+    writeFloat("[p_coord]+00",31.83480835)
+    writeFloat("[p_coord]+04",97.51851654)
+    writeFloat("[p_coord]+08",-145.8421173)
+  end
+
+   --6
+  if isKeyPressed(VK_6) then
+  speak()
+    writeFloat("[p_coord]+00",17.62243652)
+    writeFloat("[p_coord]+04",98.69902039)
+    writeFloat("[p_coord]+08",-132.6021271)
+  end
+   --7
+  if isKeyPressed(VK_7) then
+  speak()
+    writeFloat("[p_coord]+00",30.66945076)
+    writeFloat("[p_coord]+04",99.18410492)
+    writeFloat("[p_coord]+08",-132.5185852)
+  end
+
+   --9
+  if isKeyPressed(VK_9) then
+  speak()
+    writeFloat("[p_coord]+00",130.1235962)
+    writeFloat("[p_coord]+04",218.9860535)
+    writeFloat("[p_coord]+08",-600.3114624)
+  end
+
+    --8
+  if isKeyPressed(VK_8) then
+  speak()
+    writeFloat("[p_coord]+00",8.092947006)
+    writeFloat("[p_coord]+04",99.6213913)
+    writeFloat("[p_coord]+08",-139.1963043)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2722</ID>
+              <Description>"&gt;Zone2&lt;"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",27.18483353)
+    writeFloat("[p_coord]+04",99.44345856)
+    writeFloat("[p_coord]+08",-106.7601013)
+  end
+
+   --1
+  if isKeyPressed(VK_1) then
+  speak()
+    writeFloat("[p_coord]+00",31.30706215)
+    writeFloat("[p_coord]+04",105.4719925)
+    writeFloat("[p_coord]+08",-71.47136688)
+  end
+
+   --2
+  if isKeyPressed(VK_2) then
+  speak()
+    writeFloat("[p_coord]+00",68.15007019)
+    writeFloat("[p_coord]+04",106.7933273)
+    writeFloat("[p_coord]+08",-90.13049316)
+  end
+
+   --3
+  if isKeyPressed(VK_3) then
+  speak()
+    writeFloat("[p_coord]+00",70.64826202)
+    writeFloat("[p_coord]+04",106.9327469)
+    writeFloat("[p_coord]+08",-62.10257721)
+  end
+
+   --4
+  if isKeyPressed(VK_4) then
+  speak()
+    writeFloat("[p_coord]+00",106.5017242)
+    writeFloat("[p_coord]+04",111.5031662)
+    writeFloat("[p_coord]+08",-48.17325974)
+  end
+
+   --5
+  if isKeyPressed(VK_5) then
+  speak()
+    writeFloat("[p_coord]+00",96.06374359)
+    writeFloat("[p_coord]+04",112.0590134)
+    writeFloat("[p_coord]+08",-100.6449661)
+  end
+
+   --6
+  if isKeyPressed(VK_6) then
+  speak()
+    writeFloat("[p_coord]+00",53.73822403)
+    writeFloat("[p_coord]+04",102.730545)
+    writeFloat("[p_coord]+08",-61.15549088)
+  end
+   --7
+  if isKeyPressed(VK_7) then
+  speak()
+    writeFloat("[p_coord]+00",88.10124207)
+    writeFloat("[p_coord]+04",99.12232208)
+    writeFloat("[p_coord]+08",-29.73038292)
+  end
+
+   --8
+  if isKeyPressed(VK_8) then
+  speak()
+    writeFloat("[p_coord]+00",55.05089569)
+    writeFloat("[p_coord]+04",96.85523987)
+    writeFloat("[p_coord]+08",-3.346763372)
+  end
+
+   --9
+  if isKeyPressed(VK_9) then
+  speak()
+    writeFloat("[p_coord]+00",-68.60140991)
+    writeFloat("[p_coord]+04",143.733139)
+    writeFloat("[p_coord]+08",226.6928864)
+  end
+
+   --Y
+  if isKeyPressed(VK_Y) then
+  speak()
+    writeFloat("[p_coord]+00",-21.15633202)
+    writeFloat("[p_coord]+04",169.9539948)
+    writeFloat("[p_coord]+08",372.141449)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2718</ID>
+              <Description>"&gt;Zone4&lt;"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",23.93925476)
+    writeFloat("[p_coord]+04",139.2220764)
+    writeFloat("[p_coord]+08",8.911407471)
+  end
+
+   --1
+  if isKeyPressed(VK_1) then
+  speak()
+    writeFloat("[p_coord]+00",45.13248444)
+    writeFloat("[p_coord]+04",144.9357147)
+    writeFloat("[p_coord]+08",52.81333542)
+  end
+
+   --2
+  if isKeyPressed(VK_2) then
+  speak()
+    writeFloat("[p_coord]+00",51.15263748)
+    writeFloat("[p_coord]+04",143.7679749)
+    writeFloat("[p_coord]+08",71.52438354)
+  end
+
+   --3
+  if isKeyPressed(VK_3) then
+  speak()
+    writeFloat("[p_coord]+00",-11.77453041)
+    writeFloat("[p_coord]+04",137.8917236)
+    writeFloat("[p_coord]+08",86.76014709)
+  end
+
+   --4
+  if isKeyPressed(VK_4) then
+  speak()
+    writeFloat("[p_coord]+00",-8.14691925)
+    writeFloat("[p_coord]+04",139.3752747)
+    writeFloat("[p_coord]+08",126.8408966)
+  end
+
+   --5
+  if isKeyPressed(VK_5) then
+  speak()
+    writeFloat("[p_coord]+00",-17.5421257)
+    writeFloat("[p_coord]+04",134.7423401)
+    writeFloat("[p_coord]+08",149.2558289)
+  end
+
+   --6
+  if isKeyPressed(VK_6) then
+  speak()
+    writeFloat("[p_coord]+00",2.856491327)
+    writeFloat("[p_coord]+04",136.7153625)
+    writeFloat("[p_coord]+08",194.355835)
+  end
+   --7
+  if isKeyPressed(VK_7) then
+  speak()
+    writeFloat("[p_coord]+00",25.28128433)
+    writeFloat("[p_coord]+04",134.4832306)
+    writeFloat("[p_coord]+08",220.5426178)
+  end
+
+   --8
+  if isKeyPressed(VK_8) then
+  speak()
+    writeFloat("[p_coord]+00",-23.56214714)
+    writeFloat("[p_coord]+04",139.6495361)
+    writeFloat("[p_coord]+08",221.5653992)
+  end
+
+   --9
+  if isKeyPressed(VK_9) then
+  speak()
+    writeFloat("[p_coord]+00",-68.60140991)
+    writeFloat("[p_coord]+04",143.733139)
+    writeFloat("[p_coord]+08",226.6928864)
+  end
+
+   --Y
+  if isKeyPressed(VK_Y) then
+  speak()
+    writeFloat("[p_coord]+00",-21.15633202)
+    writeFloat("[p_coord]+04",169.9539948)
+    writeFloat("[p_coord]+08",372.141449)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2717</ID>
+              <Description>"&gt;Grandma&lt;"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",3.510792017)
+    writeFloat("[p_coord]+04",86.12158203)
+    writeFloat("[p_coord]+08",-48.83540344)
+  end
+
+   --1
+  if isKeyPressed(VK_1) then
+  speak()
+    writeFloat("[p_coord]+00",-17.40125656)
+    writeFloat("[p_coord]+04",84.88053131)
+    writeFloat("[p_coord]+08",-31.92457771)
+  end
+
+   --2
+  if isKeyPressed(VK_2) then
+  speak()
+    writeFloat("[p_coord]+00",8.794804573)
+    writeFloat("[p_coord]+04",92.20740509)
+    writeFloat("[p_coord]+08",4.609320641)
+  end
+
+   --3
+  if isKeyPressed(VK_3) then
+  speak()
+    writeFloat("[p_coord]+00",-19.64655685)
+    writeFloat("[p_coord]+04",95.62078094)
+    writeFloat("[p_coord]+08",19.58665276)
+  end
+
+   --4
+  if isKeyPressed(VK_4) then
+  speak()
+    writeFloat("[p_coord]+00",23.6539402)
+    writeFloat("[p_coord]+04",83.90687561)
+    writeFloat("[p_coord]+08",25.33046913)
+  end
+
+   --5
+  if isKeyPressed(VK_5) then
+  speak()
+    writeFloat("[p_coord]+00",2.613251209)
+    writeFloat("[p_coord]+04",89.64302826)
+    writeFloat("[p_coord]+08",66.08584595)
+  end
+
+   --6
+  if isKeyPressed(VK_6) then
+  speak()
+    writeFloat("[p_coord]+00",15.4649725)
+    writeFloat("[p_coord]+04",87.86642456)
+    writeFloat("[p_coord]+08",97.7100296)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2711</ID>
+          <Description>"-ValleyOfTriumph-"</Description>
+          <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+          <Color>00FFFF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2719</ID>
+              <Description>"&gt;VillageOfDreams&lt;"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",243.9890594)
+    writeFloat("[p_coord]+04",76.12698364)
+    writeFloat("[p_coord]+08",70.45709229)
+  end
+
+   --1
+  if isKeyPressed(VK_1) then
+  speak()
+    writeFloat("[p_coord]+00",77.16268158)
+    writeFloat("[p_coord]+04",49.39530945)
+    writeFloat("[p_coord]+08",71.65608978)
+  end
+
+   --2
+  if isKeyPressed(VK_2) then
+  speak()
+    writeFloat("[p_coord]+00",-94.87491608)
+    writeFloat("[p_coord]+04",187.5072632)
+    writeFloat("[p_coord]+08",424.961792)
+  end
+
+   --3
+  if isKeyPressed(VK_3) then
+  speak()
+    writeFloat("[p_coord]+00",116.1063309)
+    writeFloat("[p_coord]+04",70.93106079)
+    writeFloat("[p_coord]+08",293.1547852)
+  end
+
+   --4
+  if isKeyPressed(VK_4) then
+  speak()
+    writeFloat("[p_coord]+00",118.881813)
+    writeFloat("[p_coord]+04",19.49868202)
+    writeFloat("[p_coord]+08",324.3654175)
+  end
+
+   --5
+  if isKeyPressed(VK_5) then
+  speak()
+    writeFloat("[p_coord]+00",103.932457)
+    writeFloat("[p_coord]+04",0.6453130841)
+    writeFloat("[p_coord]+08",360.6825867)
+  end
+
+   --6
+  if isKeyPressed(VK_6) then
+  speak()
+    writeFloat("[p_coord]+00",114.2354813)
+    writeFloat("[p_coord]+04",0.3264446557)
+    writeFloat("[p_coord]+08",420.5493164)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>2720</ID>
+                  <Description>"&gt;VillageOfDreams1&lt;"</Description>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",-88.07987213)
+    writeFloat("[p_coord]+04",221.6215515)
+    writeFloat("[p_coord]+08",531.5021362)
+  end
+
+   --1
+  if isKeyPressed(VK_1) then
+  speak()
+    writeFloat("[p_coord]+00",-191.1794434)
+    writeFloat("[p_coord]+04",260.0955505)
+    writeFloat("[p_coord]+08",682.5796509)
+  end
+
+   --2
+  if isKeyPressed(VK_2) then
+  speak()
+    writeFloat("[p_coord]+00",-94.87491608)
+    writeFloat("[p_coord]+04",187.5072632)
+    writeFloat("[p_coord]+08",424.961792)
+  end
+
+   --3
+  if isKeyPressed(VK_3) then
+  speak()
+    writeFloat("[p_coord]+00",91.89277649)
+    writeFloat("[p_coord]+04",2.287508726)
+    writeFloat("[p_coord]+08",292.7108459)
+  end
+
+   --4
+  if isKeyPressed(VK_4) then
+  speak()
+    writeFloat("[p_coord]+00",118.881813)
+    writeFloat("[p_coord]+04",19.49868202)
+    writeFloat("[p_coord]+08",324.3654175)
+  end
+
+   --5
+  if isKeyPressed(VK_5) then
+  speak()
+    writeFloat("[p_coord]+00",103.932457)
+    writeFloat("[p_coord]+04",0.6453130841)
+    writeFloat("[p_coord]+08",360.6825867)
+  end
+
+   --6
+  if isKeyPressed(VK_6) then
+  speak()
+    writeFloat("[p_coord]+00",114.2354813)
+    writeFloat("[p_coord]+04",0.3264446557)
+    writeFloat("[p_coord]+08",420.5493164)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2732</ID>
+          <Description>"-GoldenWasteland-"</Description>
+          <Options moHideChildren="1"/>
+          <Color>00FFFF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2731</ID>
+              <Description>"&gt;Zone1&lt;"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",46.32030487)
+    writeFloat("[p_coord]+04",5.472998142)
+    writeFloat("[p_coord]+08",375.3293457)
+  end
+
+   --1
+  if isKeyPressed(VK_1) then
+  speak()
+    writeFloat("[p_coord]+00",5.887106895)
+    writeFloat("[p_coord]+04",0.8774944544)
+    writeFloat("[p_coord]+08",303.2542114)
+  end
+
+   --2
+  if isKeyPressed(VK_2) then
+  speak()
+    writeFloat("[p_coord]+00",85.21544647)
+    writeFloat("[p_coord]+04",0.7122803926)
+    writeFloat("[p_coord]+08",307.2773132)
+  end
+
+   --3
+  if isKeyPressed(VK_3) then
+  speak()
+    writeFloat("[p_coord]+00",-86.53993988)
+    writeFloat("[p_coord]+04",3.307661533)
+    writeFloat("[p_coord]+08",328.6399841)
+  end
+
+   --4
+  if isKeyPressed(VK_4) then
+  speak()
+    writeFloat("[p_coord]+00",-25.22368622)
+    writeFloat("[p_coord]+04",3.934957981)
+    writeFloat("[p_coord]+08",258.27948)
+  end
+
+   --5
+  if isKeyPressed(VK_5) then
+  speak()
+    writeFloat("[p_coord]+00",-19.358675)
+    writeFloat("[p_coord]+04",0.4717579484)
+    writeFloat("[p_coord]+08",211.6062927)
+  end
+
+   --6
+  if isKeyPressed(VK_6) then
+  speak()
+    writeFloat("[p_coord]+00",-74.71407318)
+    writeFloat("[p_coord]+04",8.743393898)
+    writeFloat("[p_coord]+08",171.5774536)
+  end
+
+   --7
+  if isKeyPressed(VK_7) then
+  speak()
+    writeFloat("[p_coord]+00",34.57620239)
+    writeFloat("[p_coord]+04",0.7897697091)
+    writeFloat("[p_coord]+08",230.4868317)
+  end
+
+   --8
+  if isKeyPressed(VK_8) then
+  speak()
+    writeFloat("[p_coord]+00",-12.78667545)
+    writeFloat("[p_coord]+04",18.10122108)
+    writeFloat("[p_coord]+08",220.8106232)
+  end
+
+   --9
+  if isKeyPressed(VK_9) then
+  speak()
+    writeFloat("[p_coord]+00",152.0598297)
+    writeFloat("[p_coord]+04",0.5530939102)
+    writeFloat("[p_coord]+08",43.86289978)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2734</ID>
+              <Description>"&gt;Zone2&lt;"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",64.80556488)
+    writeFloat("[p_coord]+04",93.83452606)
+    writeFloat("[p_coord]+08",283.5932617)
+  end
+
+   --1
+  if isKeyPressed(VK_1) then
+  speak()
+    writeFloat("[p_coord]+00",64.56794739)
+    writeFloat("[p_coord]+04",100.7762222)
+    writeFloat("[p_coord]+08",181.4974518)
+  end
+
+   --2
+  if isKeyPressed(VK_2) then
+  speak()
+    writeFloat("[p_coord]+00",66.46615601)
+    writeFloat("[p_coord]+04",99.0782547)
+    writeFloat("[p_coord]+08",110.5218506)
+  end
+
+   --3
+  if isKeyPressed(VK_3) then
+  speak()
+    writeFloat("[p_coord]+00",52.76235962)
+    writeFloat("[p_coord]+04",66.78686523)
+    writeFloat("[p_coord]+08",-16.76438332)
+  end
+
+   --4
+  if isKeyPressed(VK_4) then
+  speak()
+    writeFloat("[p_coord]+00",49.00509262)
+    writeFloat("[p_coord]+04",69.13876343)
+    writeFloat("[p_coord]+08",-60.03288269)
+  end
+
+   --5
+  if isKeyPressed(VK_5) then
+  speak()
+    writeFloat("[p_coord]+00",-13.19182301)
+    writeFloat("[p_coord]+04",88.9543457)
+    writeFloat("[p_coord]+08",-136.373642)
+  end
+
+   --6
+  if isKeyPressed(VK_6) then
+  speak()
+    writeFloat("[p_coord]+00",29.91914558)
+    writeFloat("[p_coord]+04",70.83704376)
+    writeFloat("[p_coord]+08",-223.310318)
+  end
+
+   --7
+  if isKeyPressed(VK_7) then
+  speak()
+    writeFloat("[p_coord]+00",15.42524719)
+    writeFloat("[p_coord]+04",83.66867065)
+    writeFloat("[p_coord]+08",-139.5481415)
+  end
+
+   --8
+  if isKeyPressed(VK_8) then
+  speak()
+    writeFloat("[p_coord]+00",173.9682159)
+    writeFloat("[p_coord]+04",68.11555481)
+    writeFloat("[p_coord]+08",-82.21091461)
+  end
+
+   --9
+  if isKeyPressed(VK_9) then
+  speak()
+    writeFloat("[p_coord]+00",92.9041214)
+    writeFloat("[p_coord]+04",77.78105164)
+    writeFloat("[p_coord]+08",-55.33564377)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2738</ID>
+              <Description>"&gt;Zone3&lt;"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",-48.94546127)
+    writeFloat("[p_coord]+04",109.9652634)
+    writeFloat("[p_coord]+08",-79.85281372)
+  end
+
+   --1
+  if isKeyPressed(VK_1) then
+  speak()
+    writeFloat("[p_coord]+00",-186.2695312)
+    writeFloat("[p_coord]+04",121.0778427)
+    writeFloat("[p_coord]+08",-169.5202026)
+  end
+
+   --2
+  if isKeyPressed(VK_2) then
+  speak()
+    writeFloat("[p_coord]+00",-245.3838959)
+    writeFloat("[p_coord]+04",118.4130859)
+    writeFloat("[p_coord]+08",-152.8345642)
+  end
+
+   --3
+  if isKeyPressed(VK_3) then
+  speak()
+    writeFloat("[p_coord]+00",-262.4467773)
+    writeFloat("[p_coord]+04",105.4899445)
+    writeFloat("[p_coord]+08",-233.3732758)
+  end
+
+   --4
+  if isKeyPressed(VK_4) then
+  speak()
+    writeFloat("[p_coord]+00",-231.4423065)
+    writeFloat("[p_coord]+04",100.6780548)
+    writeFloat("[p_coord]+08",-228.0444794)
+  end
+
+   --5
+  if isKeyPressed(VK_5) then
+  speak()
+    writeFloat("[p_coord]+00",-237.5870667)
+    writeFloat("[p_coord]+04",97.82752991)
+    writeFloat("[p_coord]+08",-283.8929138)
+  end
+
+   --6
+  if isKeyPressed(VK_6) then
+  speak()
+    writeFloat("[p_coord]+00",-209.0523376)
+    writeFloat("[p_coord]+04",97.57301331)
+    writeFloat("[p_coord]+08",-303.6915283)
+  end
+
+   --7
+  if isKeyPressed(VK_7) then
+  speak()
+    writeFloat("[p_coord]+00",-276.0111694)
+    writeFloat("[p_coord]+04",85.83911133)
+    writeFloat("[p_coord]+08",-338.27948)
+  end
+
+   --8
+  if isKeyPressed(VK_8) then
+  speak()
+    writeFloat("[p_coord]+00",-268.649353)
+    writeFloat("[p_coord]+04",89.97755432)
+    writeFloat("[p_coord]+08",-374.7396851)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2737</ID>
+              <Description>"&gt;Ship&lt;"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",-180.0048218)
+    writeFloat("[p_coord]+04",3.742712975)
+    writeFloat("[p_coord]+08",488.0505676)
+  end
+
+   --1
+  if isKeyPressed(VK_1) then
+  speak()
+    writeFloat("[p_coord]+00",-199.7633057)
+    writeFloat("[p_coord]+04",0.9221272469)
+    writeFloat("[p_coord]+08",426.4265442)
+  end
+
+   --2
+  if isKeyPressed(VK_2) then
+  speak()
+    writeFloat("[p_coord]+00",-130.8941956)
+    writeFloat("[p_coord]+04",3.1286726)
+    writeFloat("[p_coord]+08",418.5119934)
+  end
+
+   --3
+  if isKeyPressed(VK_3) then
+  speak()
+    writeFloat("[p_coord]+00",-171.274292)
+    writeFloat("[p_coord]+04",0.2219752371)
+    writeFloat("[p_coord]+08",421.2476196)
+  end
+
+   --4
+  if isKeyPressed(VK_4) then
+  speak()
+    writeFloat("[p_coord]+00",-27.56928062)
+    writeFloat("[p_coord]+04",38.8167305)
+    writeFloat("[p_coord]+08",524.0805664)
+  end
+
+   --5
+  if isKeyPressed(VK_5) then
+  speak()
+    writeFloat("[p_coord]+00",-166.2888489)
+    writeFloat("[p_coord]+04",9.643063545)
+    writeFloat("[p_coord]+08",371.7438049)
+  end
+
+   --6
+  if isKeyPressed(VK_6) then
+  speak()
+    writeFloat("[p_coord]+00",-267.7121887)
+    writeFloat("[p_coord]+04",5.965240955)
+    writeFloat("[p_coord]+08",422.4638367)
+  end
+
+   --7
+  if isKeyPressed(VK_7) then
+  speak()
+    writeFloat("[p_coord]+00",-293.8005676)
+    writeFloat("[p_coord]+04",34.6084671)
+    writeFloat("[p_coord]+08",401.2837524)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>2733</ID>
+              <Description>"&gt;ForgottenArk&lt;"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",-42.2647438)
+    writeFloat("[p_coord]+04",149.4182892)
+    writeFloat("[p_coord]+08",208.8028412)
+  end
+
+   --2
+  if isKeyPressed(VK_2) then
+  speak()
+    writeFloat("[p_coord]+00",148.2129822)
+    writeFloat("[p_coord]+04",133.5042114)
+    writeFloat("[p_coord]+08",306.2214661)
+  end
+
+   --1
+  if isKeyPressed(VK_1) then
+  speak()
+    writeFloat("[p_coord]+00",112.6099243)
+    writeFloat("[p_coord]+04",141.1972656)
+    writeFloat("[p_coord]+08",385.940155)
+  end
+
+   --3
+  if isKeyPressed(VK_3) then
+  speak()
+    writeFloat("[p_coord]+00",106.6120148)
+    writeFloat("[p_coord]+04",115.5764542)
+    writeFloat("[p_coord]+08",459.9474487)
+  end
+
+   --4
+  if isKeyPressed(VK_4) then
+  speak()
+    writeFloat("[p_coord]+00",244.5726929)
+    writeFloat("[p_coord]+04",115.4939117)
+    writeFloat("[p_coord]+08",509.9570923)
+  end
+
+   --5
+  if isKeyPressed(VK_5) then
+  speak()
+    writeFloat("[p_coord]+00",284.2963867)
+    writeFloat("[p_coord]+04",121.4398346)
+    writeFloat("[p_coord]+08",352.7518921)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2709</ID>
+          <Description>"-Trials-"</Description>
+          <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+          <Color>00FFFF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2710</ID>
+              <Description>"&gt;Water&lt;"</Description>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",36.80936813)
+    writeFloat("[p_coord]+04",64.97927856)
+    writeFloat("[p_coord]+08",-100.1112747)
+  end
+
+   --1
+  if isKeyPressed(VK_1) then
+  speak()
+    writeFloat("[p_coord]+00",43.54459)
+    writeFloat("[p_coord]+04",67.27853394)
+    writeFloat("[p_coord]+08",-272.5015869)
+  end
+
+   --2
+  if isKeyPressed(VK_2) then
+  speak()
+    writeFloat("[p_coord]+00",-0.295419395)
+    writeFloat("[p_coord]+04",78.23288727)
+    writeFloat("[p_coord]+08",-411.6860352)
+  end
+
+   --3
+  if isKeyPressed(VK_3) then
+  speak()
+    writeFloat("[p_coord]+00",-0.3588757813)
+    writeFloat("[p_coord]+04",69.29528046)
+    writeFloat("[p_coord]+08",-429.3776245)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2728</ID>
+      <Description>"////Other////"</Description>
+      <Options moHideChildren="1"/>
+      <Color>00FF00</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>19</ID>
+          <Description>"Wings"</Description>
+          <VariableType>Float</VariableType>
+          <Address>"Sky.exe"+023B2698</Address>
+          <Offsets>
+            <Offset>1C</Offset>
+            <Offset>48</Offset>
+            <Offset>10</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"Fire men"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"Sky.exe"+12EB6EF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+add [r12+1C],(float)7
+originalcode:
+vmovss xmm9,[r12+1C]
+
+exit:
+jmp returnhere
+
+"Sky.exe"+12EB6EF:
+jmp newmem
+nop 2
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"Sky.exe"+12EB6EF:
+db C4 41 7A 10 4C 24 1C
+//vmovss xmm9,[r12+1C]
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"NoDeath"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>2 Bytes</VariableType>
+          <Address>"Sky.exe"+023B2698</Address>
+          <Offsets>
+            <Offset>75E</Offset>
+            <Offset>90</Offset>
+            <Offset>5A0</Offset>
+            <Offset>5E0</Offset>
+            <Offset>38</Offset>
+            <Offset>5B8</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2740</ID>
+      <Description>"&gt;Zone1&lt;"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{$lua}
+
+[ENABLE]
+
+
+
+   --0
+  if isKeyPressed(VK_0) then
+  speak()
+    writeFloat("[p_coord]+00",4.670629025)
+    writeFloat("[p_coord]+04",0.6873314381)
+    writeFloat("[p_coord]+08",-2.413155317)
+    sleep(300)
+    writeFloat("[p_coord]+00",10.68209267)
+    writeFloat("[p_coord]+04",0.220169574)
+    writeFloat("[p_coord]+08",-14.49197674)
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[DISABLE]
+
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :sub rsp,28</Description>
+      <AddressString>Sky.exe+186C66C</AddressString>
+      <Before>
+        <Byte>FE</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>28</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>0B</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Wl</Description>
+      <AddressString>Sky.exe+134A23C</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>A2</Byte>
+        <Byte>71</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>B7</Byte>
+        <Byte>89</Byte>
+        <Byte>80</Byte>
+        <Byte>71</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>45</Byte>
+        <Byte>89</Byte>
+        <Byte>8C</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :vmovaps [rsi+00000C60],xmm0</Description>
+      <AddressString>Sky.exe+7ADAE1</AddressString>
+      <Before>
+        <Byte>18</Byte>
+        <Byte>C5</Byte>
+        <Byte>F8</Byte>
+        <Byte>28</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>C5</Byte>
+        <Byte>F8</Byte>
+        <Byte>29</Byte>
+        <Byte>86</Byte>
+        <Byte>60</Byte>
+        <Byte>0C</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C5</Byte>
+        <Byte>FA</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>94</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :vmovaps [rbx],xmm0</Description>
+      <AddressString>Sky.exe+7AF24A</AddressString>
+      <Before>
+        <Byte>F8</Byte>
+        <Byte>28</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>60</Byte>
+      </Before>
+      <Actual>
+        <Byte>C5</Byte>
+        <Byte>F8</Byte>
+        <Byte>29</Byte>
+        <Byte>03</Byte>
+      </Actual>
+      <After>
+        <Byte>31</Byte>
+        <Byte>C9</Byte>
+        <Byte>84</Byte>
+        <Byte>C0</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of call Sky.exe+186C680</Description>
+      <AddressString>Sky.exe+186C65C</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>28</Byte>
+      </Before>
+      <Actual>
+        <Byte>E8</Byte>
+        <Byte>1F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>28</Byte>
+        <Byte>E9</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+  <DisassemblerComments>
+    <DisassemblerComment>
+      <Address>"Sky.exe"+1519ABC</Address>
+      <Comment>16
+</Comment>
+    </DisassemblerComment>
+  </DisassemblerComments>
+</CheatTable>
